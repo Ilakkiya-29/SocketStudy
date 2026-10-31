@@ -119,10 +119,10 @@ finally:
 ## Output:
 
 ## Server:
-<img width="1478" height="165" alt="image" src="https://github.com/user-attachments/assets/1d39a712-7c40-4758-bccf-ca3629e85755" />
+<img width="1277" height="278" alt="image" src="https://github.com/user-attachments/assets/aed0102d-de25-4740-b2c6-42f0866f734f" />
 
 ## Client:
-<img width="1483" height="100" alt="image" src="https://github.com/user-attachments/assets/dfb2afe6-cd4b-45ab-8dae-96a27c921c4f" />
+<img width="1278" height="207" alt="image" src="https://github.com/user-attachments/assets/9538a2d4-9385-4d18-8cf3-24af35c8e695" />
 
 ## Result:
 Thus the study of Socket Programming Completed Successfully
