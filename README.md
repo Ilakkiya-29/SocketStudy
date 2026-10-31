@@ -44,7 +44,9 @@ Clients create a socket using socket() and connect to a server using connect().
 After establishing a connection, clients can send and receive data using send() and recv().
 
 ## Use Cases of Socket Programming:
+
 Socket programming finds applications in various domains, including web development, file transfer protocols, online gaming, and real-time communication. It is the foundation for protocols like HTTP, FTP, and SMTP, which power the internet. Socket programming enables the development of both server and client applications, facilitating the exchange of information between devices in a networked environment.
+
 ## Example Use Cases:
 
 1.	Web servers: Web servers use socket programming to handle incoming HTTP requests from clients, serving web pages and content.
@@ -53,6 +55,68 @@ Socket programming finds applications in various domains, including web developm
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
 
+## Program:
+
+## Server:
+```
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(('localhost', 8000))
+s.listen(5)
+
+print("Waiting for client...")
+c, addr = s.accept()
+print(f"Client connected from {addr}")
+
+try:
+    while True:
+        data = input("Enter a data: ")
+        c.sendall(data.encode())
+
+        ack = c.recv(1024).decode()
+        if not ack:
+            print("Client disconnected.")
+            break
+        print("Acknowledgement:", ack)
+finally:
+    c.close()
+    s.close()
+```
+## Client:
+```
+import socket
+
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+
+s.connect(('localhost', 8000))
+print("Connected to server successfully.")
+
+try:
+    while True:
+        
+        data = s.recv(1024).decode()
+        if not data:
+            print("Server closed the connection.")
+            break
+
+        print(f"Received from server: {data}")
+
+        
+        ack = "Received: " + data
+        s.sendall(ack.encode())
+finally:
+    s.close()
+```
+## Output:
+
+## Server:
+<img width="1478" height="165" alt="image" src="https://github.com/user-attachments/assets/1d39a712-7c40-4758-bccf-ca3629e85755" />
+
+## Client:
+<img width="1483" height="100" alt="image" src="https://github.com/user-attachments/assets/dfb2afe6-cd4b-45ab-8dae-96a27c921c4f" />
 
 ## Result:
 Thus the study of Socket Programming Completed Successfully
